@@ -1,0 +1,26 @@
+# Rust build artifacts
+target/
+rust_basics/target/
+
+# Cargo lock file (optional, uncomment if you want to ignore it)
+# Cargo.lock
+
+tree-maker/
+
+# macOS
+.DS_Store
+
+# Windows executables
+*.exe
+*.pdb
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
