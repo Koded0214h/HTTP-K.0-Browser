@@ -2,6 +2,8 @@
 target/
 rust_basics/target/
 
+Network Stack/target/
+
 # Cargo lock file (optional, uncomment if you want to ignore it)
 # Cargo.lock
 
