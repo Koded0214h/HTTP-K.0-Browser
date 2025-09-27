@@ -6,4 +6,7 @@ fn main() {
 
     println!("\nTCP With Headers!");
     sockets::tcp_with_headers::run();
+
+    println!("\nUDP!");
+    sockets::udp::run();
 }
