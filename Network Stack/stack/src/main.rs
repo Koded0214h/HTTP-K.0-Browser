@@ -1,4 +1,5 @@
 mod sockets;
+mod tests;
 
 fn main() {
     println!("TCP Without Headers!");
@@ -9,4 +10,6 @@ fn main() {
 
     println!("\nUDP!");
     sockets::udp::run();
+
+
 }
