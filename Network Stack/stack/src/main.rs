@@ -1,15 +1,8 @@
 mod sockets;
 mod tests;
+use sockets::chat::{server::run_server, client::run_client};
 
 fn main() {
-    println!("TCP Without Headers!");
-    sockets::tcp::run();
-
-    println!("\nTCP With Headers!");
-    sockets::tcp_with_headers::run();
-
-    println!("\nUDP!");
-    sockets::udp::run();
-
-
+    // run_server();
+    run_client();
 }
