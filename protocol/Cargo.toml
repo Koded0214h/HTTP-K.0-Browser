@@ -1,6 +1,12 @@
 [package]
 name = "protocol"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
+
+[[bin]]
+name = "k0"
+path = "src/main.rs"
 
 [dependencies]
+tokio = { version = "1", features = ["full"] }
+anyhow = "1"

@@ -1,17 +1,26 @@
-mod hybridProtocol;
+// src/main.rs — run server or client from args
 
-use hybridProtocol::{tcp::start_tcp_server, udp::start_udp_server, client::run_client};
+mod connection;
+mod packet;
+mod transport;
 
-fn main() -> std::io::Result<()> {
-    // Run each in a separate terminal:
-    // start_tcp_server()  → Control channel
-    // start_udp_server()  → Data channel
-    // run_client()        → Hybrid client
+use transport::K0Transport;
+use std::net::SocketAddr;
 
-    // Uncomment what you want to run:
-    // start_tcp_server()?;
-    // start_udp_server()?;
-    run_client()?;
-
+#[tokio::main]
+async fn main() -> anyhow::Result<()> {
+    let args: Vec<String> = std::env::args().collect();
+    match args.get(1).map(|s| s.as_str()) {
+        Some("server") => {
+            let t = K0Transport::bind("0.0.0.0:9000").await?;
+            t.run().await?;
+        }
+        Some("client") => {
+            let peer: SocketAddr = "127.0.0.1:9000".parse()?;
+            let t = K0Transport::bind("0.0.0.0:0").await?;
+            t.connect(peer, 0x4f2a9b1e_deadbeef).await?;
+        }
+        _ => eprintln!("Usage: http-k0 [server|client]"),
+    }
     Ok(())
 }
