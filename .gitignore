@@ -26,3 +26,5 @@ tree-maker/
 # Temporary files
 *.tmp
 *.swp
+
+.claude/
