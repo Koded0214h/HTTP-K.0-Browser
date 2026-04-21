@@ -8,8 +8,12 @@ name = "http-k0"
 path = "src/main.rs"
 
 [dependencies]
-tokio   = { version = "1",    features = ["full"] }
-anyhow  = "1"
+tokio          = { version = "1",    features = ["full"] }
+anyhow         = "1"
+rustls         = { version = "0.23", default-features = false, features = ["ring", "std", "tls12"] }
+rustls-pemfile = "2"
+ring           = "0.17"
+bytes          = "1"
 
 [dev-dependencies]
 tokio = { version = "1", features = ["full", "test-util"] }
